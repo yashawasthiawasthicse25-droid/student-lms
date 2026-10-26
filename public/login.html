@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Register | EduPulse LMS</title>
+  <meta name="description" content="Sign in or register for EduPulse Student Learning Management System.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link">Courses</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/index.html" class="btn btn-outline btn-sm">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3.5rem; padding-bottom: 5rem; max-width: 520px;">
+    <!-- Auth Card -->
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-md);">
+      
+      <!-- Tab Switcher -->
+      <div class="tabs-nav" style="margin-bottom: 1.75rem;">
+        <button class="tab-btn active" id="tab-btn-login" onclick="switchAuthTab('login')">Log In</button>
+        <button class="tab-btn" id="tab-btn-register" onclick="switchAuthTab('register')">Create Account</button>
+      </div>
+
+      <!-- Quick 1-Click Demo Login Banner -->
+      <div style="background: var(--primary-light); border: 1px solid #c7d2fe; border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.85rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">
+          ⚡ Quick 1-Click Evaluation Accounts:
+        </p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="quickLoginAs('student')">
+            Demo Student
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="quickLoginAs('admin')">
+            Demo Faculty/Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- 1. LOGIN FORM -->
+      <div id="login-form-container">
+        <div id="login-error-msg" class="quiz-feedback error" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="login-form" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-input" placeholder="e.g. student@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem;">
+            Sign In to Dashboard
+          </button>
+        </form>
+      </div>
+
+      <!-- 2. REGISTRATION FORM -->
+      <div id="register-form-container" style="display: none;">
+        <div id="reg-error-msg" class="quiz-feedback error" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="register-form" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label class="form-label" for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="form-input" placeholder="e.g. Jordan Lee" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="e.g. jordan@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password (min 6 characters)</label>
+            <input type="password" id="reg-password" class="form-input" minlength="6" placeholder="••••••••" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-role">Account Type</label>
+            <select id="reg-role" class="form-select">
+              <option value="student">Student (Track courses, lessons & quizzes)</option>
+              <option value="admin">Teacher / Faculty (Manage courses & view progress)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem;">
+            Create New Account
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

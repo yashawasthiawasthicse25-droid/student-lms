@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduPulse | Student Learning Management System</title>
+  <meta name="description" content="A comprehensive student learning management system for mastering modern engineering, computer science, and data technologies.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link active">Home</a></li>
+        <li><a href="/courses.html" class="nav-link">Courses</a></li>
+        <li><a href="/profile.html" class="nav-link">My Learning</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by api.js based on auth state -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-text-col">
+          <span class="hero-tag">🎓 Version 1 • 2 • 3 Complete LMS</span>
+          <h1 class="hero-title">
+            Empower Your Future with <span>Interactive Learning</span>
+          </h1>
+          <p class="hero-subtitle">
+            Explore world-class technical curriculums, track your lesson milestones in real time, test your understanding with interactive quizzes, and unlock your potential.
+          </p>
+          <div class="hero-actions">
+            <a href="/courses.html" class="btn btn-primary btn-lg">Explore Courses</a>
+            <a href="/login.html?tab=register" class="btn btn-outline btn-lg">Sign Up Free</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-num">6+</div>
+              <div class="stat-label">Core Tracks</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Hands-On Practice</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">Instant</div>
+              <div class="stat-label">Quiz Grading</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-col">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <span class="badge badge-primary">Featured Learning Track</span>
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--success);">● Active Session</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Web Development Foundations</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Semantic HTML5, CSS Grid, Flexbox, responsive typography, and modern responsive UI architecture.</p>
+            
+            <div class="progress-container">
+              <div class="progress-header">
+                <span>Progress Milestone</span>
+                <span class="percentage">60%</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 60%;"></div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Instructor: Dr. Sarah Chen</span>
+              <a href="/course-detail.html?id=1" class="btn btn-primary btn-sm">Preview Course</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Platform Capabilities</span>
+          <h2 class="section-title">Built for Students, Guided by Teachers</h2>
+          <p class="section-desc">A comprehensive platform that evolves from structured HTML/CSS pages into reactive state management and robust database persistence.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Smart Course Discovery</h3>
+            <p>Search courses by title, keywords, or instructors. Filter dynamically across multiple disciplines and difficulty levels.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Live Progress Tracking</h3>
+            <p>Check off completed lessons. Watch your progress bar update instantly with responsive percentage indicators.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Interactive Quizzes</h3>
+            <p>Reinforce your mastery with automated quizzes. Get immediate scores, passed/failed feedback, and question explanations.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">👩‍🏫</div>
+            <h3>Teacher & Admin Portal</h3>
+            <p>Instructors can view enrollment rates, monitor student completion metrics, and publish new courses seamlessly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick CTA Banner -->
+    <section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container" style="text-align: center; max-width: 720px;">
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem;">Ready to start your journey?</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Join thousands of students building their engineering skills with our structured curriculum.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/courses.html" class="btn btn-primary btn-lg">Browse All Courses</a>
+          <a href="/login.html" class="btn btn-outline btn-lg">Student Login</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="logo-icon" style="width: 2rem; height: 2rem; font-size: 0.85rem;">EP</div>
+            <span>EduPulse LMS</span>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+            A modern, full-stack Student Learning Management System demonstrating UI design, reactive state management, and database-backed dashboards.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/courses.html">All Courses</a></li>
+            <li><a href="/profile.html">Student Profile</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">User Portals</h4>
+          <ul class="footer-links">
+            <li><a href="/login.html">Student Sign In</a></li>
+            <li><a href="/login.html?tab=register">Register Account</a></li>
+            <li><a href="/admin.html">Faculty / Admin</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Demo Credentials</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong>Student:</strong> student@example.com / password123</p>
+          <p style="font-size: 0.85rem;"><strong>Admin:</strong> admin@example.com / admin123</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 EduPulse Learning Systems. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="/contact.html">Support</a>
+          <a href="/courses.html">Curriculum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+</body>
+</html>

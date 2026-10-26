@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Catalog | EduPulse LMS</title>
+  <meta name="description" content="Explore our catalog of web development, computer science, and data courses. Filter by subject or search.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link active">Courses</a></li>
+        <li><a href="/profile.html" class="nav-link">My Learning</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Auth status injected by api.js -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <!-- Page Header -->
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Curriculum Catalog</span>
+      <h1 style="font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+        Explore All Courses
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">
+        Discover in-depth courses crafted by industry experts. Search and filter to find the exact track for your goals.
+      </p>
+    </div>
+
+    <!-- Version 2: Search & Filter Controls -->
+    <section class="filter-panel" aria-label="Filter courses">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" 
+               id="course-search-input" 
+               placeholder="Search courses by keyword, topic, or instructor name..." 
+               aria-label="Search courses" />
+      </div>
+
+      <div class="filter-pills-row">
+        <div class="pills-group" role="tablist" aria-label="Subject filter">
+          <button class="filter-pill active" data-subject="all">All Subjects</button>
+          <button class="filter-pill" data-subject="Web Development">Web Development</button>
+          <button class="filter-pill" data-subject="Computer Science">Computer Science</button>
+          <button class="filter-pill" data-subject="Data Science">Data Science</button>
+          <button class="filter-pill" data-subject="Mathematics">Mathematics</button>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <label for="course-level-select" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Level:</label>
+          <select id="course-level-select" class="level-select">
+            <option value="all">All Levels</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <span id="courses-count" class="badge badge-accent" style="white-space: nowrap;">Loading...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Grid (Populated dynamically by courses.js) -->
+    <section class="courses-grid" id="courses-container" aria-live="polite">
+      <!-- Fallback / Static Skeleton for Version 1 -->
+      <article class="course-card">
+        <div class="course-banner" style="background: linear-gradient(135deg, #3b82f6, #1e293b);">
+          <span class="course-subject-tag">Web Development</span>
+          <span class="badge badge-accent">Bestseller</span>
+        </div>
+        <div class="course-body">
+          <div class="course-level">Beginner • By Dr. Sarah Chen</div>
+          <h3 class="course-title"><a href="/course-detail.html?id=1">Web Development Foundations: HTML, CSS & Modern Layouts</a></h3>
+          <p class="course-desc">Master semantic HTML5, CSS Grid, Flexbox, responsive typography, and modern UI architecture.</p>
+          <div class="course-meta">
+            <span class="course-meta-item">⏱ 6 Weeks</span>
+            <span class="course-meta-item">📚 5 Lessons</span>
+            <span class="course-meta-item">📝 3 Quizzes</span>
+          </div>
+          <div class="course-card-footer">
+            <a href="/course-detail.html?id=1" class="btn btn-outline" style="width: 100%;">View Curriculum</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <div>© 2026 EduPulse Learning Systems. All rights reserved.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="/index.html">Home</a>
+        <a href="/profile.html">Student Profile</a>
+        <a href="/contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/courses.js"></script>
+</body>
+</html>

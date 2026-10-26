@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Academic Support | EduPulse LMS</title>
+  <meta name="description" content="Get in touch with academic advisors, faculty instructors, or technical support.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link">Courses</a></li>
+        <li><a href="/profile.html" class="nav-link">My Learning</a></li>
+        <li><a href="/contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by api.js based on auth state -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3.5rem; padding-bottom: 5rem;">
+    <!-- Page Header -->
+    <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem;">
+      <span class="badge badge-primary" style="margin-bottom: 0.5rem;">Support & Inquiries</span>
+      <h1 style="font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">
+        Get in Touch With Us
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">
+        Have questions about courses, certifications, technical setup, or curriculum access? Our academic support desk is here to help.
+      </p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Contact Form -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem;">Send a Message</h2>
+        
+        <div id="contact-status-msg" style="display: none; margin-bottom: 1.25rem;"></div>
+
+        <form id="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Your Full Name</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="e.g. Alex Rivera" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="e.g. alex@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-subject">Topic / Subject</label>
+            <select id="contact-subject" class="form-select" required>
+              <option value="">Select an inquiry category...</option>
+              <option value="Course Curriculum Question">Course Curriculum Question</option>
+              <option value="Technical Platform Issue">Technical Platform Issue</option>
+              <option value="Quiz & Grading Clarification">Quiz & Grading Clarification</option>
+              <option value="Instructor Office Hours">Instructor Office Hours</option>
+              <option value="Other Inquiries">Other Inquiries</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="contact-message">Message Details</label>
+            <textarea id="contact-message" class="form-textarea" placeholder="How can we assist your learning today?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" id="contact-submit-btn" style="width: 100%;">
+            Send Message
+          </button>
+        </form>
+      </section>
+
+      <!-- Campus & Academic Support Info + FAQ -->
+      <aside>
+        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+          <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem;">Advising Office</h2>
+          <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+            <div>
+              <strong style="color: var(--text-main); display: block;">📍 Advising Location:</strong>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Azad+Nagar%2C+Roorkee%2C+Uttarakhand%2C+India" target="_blank" rel="noopener noreferrer">
+                Azad Nagar, Roorkee, Uttarakhand, India
+              </a>
+            </div>
+            <div>
+              <strong style="color: var(--text-main); display: block;">✉️ Academic Support:</strong>
+              <a id="contact-support-email" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=awasthishiv255%40gmail.com" target="_blank" rel="noopener noreferrer">awasthishiv255@gmail.com</a>
+            </div>
+            <div>
+              <strong style="color: var(--text-main); display: block;">🕒 Advising Hours:</strong>
+              Monday – Friday: 9:00 AM – 6:00 PM EST
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <section style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-sm);">
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-summary">Are all course lessons self-paced? <span style="font-size: 0.8rem;">▼</span></summary>
+              <div class="faq-content">
+                Yes! Every module is completely self-paced. You can mark lessons as complete whenever you finish reviewing them, and your progress percentage will persist across all sessions.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">How does the quiz grading work? <span style="font-size: 0.8rem;">▼</span></summary>
+              <div class="faq-content">
+                Quizzes are graded instantaneously upon submission. You will see which questions you answered correctly, along with rationales and explanations for every concept. A score of 70% or higher is considered passing.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">How do instructors manage courses? <span style="font-size: 0.8rem;">▼</span></summary>
+              <div class="faq-content">
+                Faculty members can sign in with instructor accounts to view real-time student completion rates, average quiz scores, and author new courses directly via the Teacher Dashboard.
+              </div>
+            </details>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <div>© 2026 EduPulse Learning Systems. All rights reserved.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="/index.html">Home</a>
+        <a href="/courses.html">Browse Courses</a>
+        <a href="/profile.html">Student Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+</html>

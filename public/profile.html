@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Learning Profile | EduPulse LMS</title>
+  <meta name="description" content="View enrolled courses, track learning progress, and review quiz performance.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link">Courses</a></li>
+        <li><a href="/profile.html" class="nav-link active">My Learning</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Injected dynamically by api.js based on auth state -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div id="profile-content">
+      <!-- Profile Header Banner -->
+      <section class="profile-header-card">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div class="profile-avatar-lg" id="profile-avatar">ST</div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+              <h1 style="font-size: 1.85rem; font-weight: 800;" id="profile-name">Student Name</h1>
+              <span class="badge badge-primary" id="profile-role-badge">STUDENT</span>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.5rem;" id="profile-email">student@example.com</p>
+            <p style="color: #475569; font-size: 0.95rem; max-width: 600px;" id="profile-bio">Bio description</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="btn btn-outline" onclick="openEditProfileModal()">Edit Profile</button>
+        </div>
+      </section>
+
+      <!-- Learning Stats Grid -->
+      <section class="profile-stats-grid" aria-label="Student Learning Analytics">
+        <div class="stat-box">
+          <div class="stat-label">Enrolled Courses</div>
+          <div class="stat-value" id="stat-enrolled">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Completed Courses</div>
+          <div class="stat-value" id="stat-completed" style="color: var(--success);">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Lessons Completed</div>
+          <div class="stat-value" id="stat-lessons" style="color: var(--primary);">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Average Quiz Score</div>
+          <div class="stat-value" id="stat-quiz-score" style="color: var(--secondary);">0%</div>
+        </div>
+      </section>
+
+      <!-- Enrolled Courses Section -->
+      <section>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <div>
+            <h2 style="font-size: 1.5rem; font-weight: 700;">My Active Curriculums</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Pick up right where you left off</p>
+          </div>
+          <a href="/courses.html" class="btn btn-outline btn-sm">+ Enroll in More Courses</a>
+        </div>
+
+        <div id="enrolled-courses-list">
+          <!-- Populated by profile.js -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Edit Profile Modal Dialog -->
+  <div class="modal-overlay" id="edit-profile-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeEditProfileModal()" aria-label="Close modal">&times;</button>
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem;">Edit Profile Information</h2>
+      
+      <form onsubmit="handleSaveProfile(event)">
+        <div class="form-group">
+          <label class="form-label" for="edit-name-input">Full Name</label>
+          <input type="text" id="edit-name-input" class="form-input" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-bio-input">Bio / Academic Interests</label>
+          <textarea id="edit-bio-input" class="form-textarea" placeholder="Tell us about your learning goals and track..."></textarea>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeEditProfileModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <div>© 2026 EduPulse Learning Systems. All rights reserved.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="/courses.html">Browse Courses</a>
+        <a href="/contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "student-lms",
+  "version": "1.0.0",
+  "description": "Student Learning Management System - Complete V1, V2, V3 Implementation",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3",
+    "nodemailer": "^10.2.1"
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details | EduPulse LMS</title>
+  <meta name="description" content="View course syllabus, track lesson completion, and test knowledge with interactive quizzes.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">EP</div>
+        <span>EduPulse LMS</span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link active">Courses</a></li>
+        <li><a href="/profile.html" class="nav-link">My Learning</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Auth status injected by api.js -->
+      </div>
+    </div>
+  </header>
+
+  <main id="course-main-content">
+    <!-- Course Detail Banner -->
+    <section class="course-detail-header" id="course-detail-banner">
+      <div class="container">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <span class="badge badge-primary" id="course-subject-pill">Subject</span>
+          <span class="badge badge-accent" id="course-level-pill">Level</span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: white; margin-bottom: 1rem; line-height: 1.2;" id="course-title-text">
+          Loading Course...
+        </h1>
+
+        <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 800px; margin-bottom: 1.5rem; line-height: 1.6;" id="course-desc-text">
+          Course overview and objectives.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1.75rem; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.75rem;">
+          <span id="course-instructor-text">Instructor: Loading...</span>
+          <span id="course-duration-text">Duration: Loading...</span>
+          <span id="course-lessons-count">0 Lessons</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;">
+          <div id="enroll-btn-container">
+            <button class="btn btn-primary btn-lg">Loading...</button>
+          </div>
+          <!-- Version 2: Progress Header -->
+          <div style="min-width: 280px; flex: 1; max-width: 400px;" id="course-progress-header">
+            <!-- Injected by course-detail.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area: Lesson Viewer + Syllabus + Quiz -->
+    <div class="container" style="padding-top: 2.5rem; padding-bottom: 5rem;">
+      <div class="course-detail-grid">
+        <!-- Left Column: Lesson Player and Quiz -->
+        <div>
+          <!-- Lesson Player / Reader -->
+          <section class="lesson-player-box" id="lesson-player-container" aria-label="Lesson player">
+            <!-- Injected by course-detail.js -->
+          </section>
+
+          <!-- Version 2: Interactive Quiz Engine -->
+          <section class="quiz-card" aria-label="Course quiz">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+              <div>
+                <span class="badge badge-accent">Knowledge Check</span>
+                <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 0.25rem;">Course Assessment Quiz</h2>
+              </div>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Pass rate: 70%+</span>
+            </div>
+
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Answer all multiple-choice questions below to test your retention. Instant scoring and detailed explanations will be generated automatically.
+            </p>
+
+            <div id="quiz-engine-container">
+              <!-- Rendered dynamically by course-detail.js -->
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column: Interactive Curriculum Checklist -->
+        <aside>
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; position: sticky; top: 5.5rem; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.25rem; font-weight: 700;">Course Syllabus</h3>
+              <span class="badge badge-primary">Modules</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Click any lesson to study. Check the box to mark lessons as completed and increment your progress percentage.
+            </p>
+
+            <div class="curriculum-list" id="curriculum-list" role="list">
+              <!-- Rendered by course-detail.js -->
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <div>© 2026 EduPulse Learning Systems. All rights reserved.</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="/courses.html">Browse Catalog</a>
+        <a href="/profile.html">Student Profile</a>
+        <a href="/contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/course-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher & Admin Dashboard | EduPulse LMS</title>
+  <meta name="description" content="Manage courses, monitor student learning progress, and review analytics.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon" style="background: linear-gradient(135deg, #0ea5e9, #4f46e5);">EP</div>
+        <span>EduPulse <span style="font-size: 0.85rem; font-weight: 500; color: var(--primary);">Faculty Portal</span></span>
+      </a>
+
+      <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+
+      <ul class="nav-links">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/courses.html" class="nav-link">Courses Catalog</a></li>
+        <li><a href="/profile.html" class="nav-link">Student View</a></li>
+        <li><a href="/admin.html" class="nav-link active">Admin Dashboard</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Auth status injected by api.js -->
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 3rem; padding-bottom: 5rem;">
+    <div id="admin-content">
+      <!-- Dashboard Header -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <div>
+          <span class="badge badge-primary">Version 3 • Faculty Console</span>
+          <h1 style="font-size: 2.25rem; font-weight: 800; color: var(--text-main); margin-top: 0.25rem;">
+            Teacher & Admin Dashboard
+          </h1>
+          <p style="color: var(--text-muted); font-size: 1rem;">
+            Monitor student engagement metrics, course progress, and author new curriculum tracks.
+          </p>
+        </div>
+
+        <button class="btn btn-primary" onclick="openCreateCourseModal()">
+          + Create New Course
+        </button>
+      </div>
+
+      <!-- KPI Metrics Grid -->
+      <section class="profile-stats-grid" aria-label="Platform Key Performance Indicators">
+        <div class="stat-box">
+          <div class="stat-label">Active Students</div>
+          <div class="stat-value" id="metric-students">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Total Courses</div>
+          <div class="stat-value" id="metric-courses" style="color: var(--primary);">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Total Enrollments</div>
+          <div class="stat-value" id="metric-enrollments" style="color: var(--secondary);">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Completed Lessons</div>
+          <div class="stat-value" id="metric-lessons-done" style="color: var(--success);">0</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-label">Average Quiz Score</div>
+          <div class="stat-value" id="metric-quiz-avg" style="color: var(--accent);">0%</div>
+        </div>
+      </section>
+
+      <!-- Managed Courses Table -->
+      <section style="margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.4rem; font-weight: 700;">Managed Courses</h2>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Real-time curriculum statistics</span>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Course Title</th>
+                <th>Subject</th>
+                <th>Level</th>
+                <th>Lead Instructor</th>
+                <th>Students Enrolled</th>
+                <th>Structure</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-courses-tbody">
+              <!-- Populated by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Student Learning Progress Tracking -->
+      <section style="margin-bottom: 3rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <div>
+            <h2 style="font-size: 1.4rem; font-weight: 700;">Student Progress Tracking</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;">Individual student curriculum completions and quiz activity</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Email</th>
+                <th>Enrolled Courses & Progress</th>
+                <th>Quiz Performance</th>
+                <th>Joined Date</th>
+              </tr>
+            </thead>
+            <tbody id="admin-students-tbody">
+              <!-- Populated by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Recent Enrollments Feed -->
+      <section>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.4rem; font-weight: 700;">Recent Enrollment Activity</h2>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Enrolled Timestamp</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-enrollments-tbody">
+              <!-- Populated by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Create Course Modal -->
+  <div class="modal-overlay" id="create-course-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeCreateCourseModal()" aria-label="Close modal">&times;</button>
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1.25rem;">Author New Course</h2>
+
+      <form onsubmit="handleCreateCourse(event)">
+        <div class="form-group">
+          <label class="form-label" for="new-course-title">Course Title</label>
+          <input type="text" id="new-course-title" class="form-input" placeholder="e.g. Cloud Computing & Microservices" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="new-course-subject">Subject Domain</label>
+            <input type="text" id="new-course-subject" class="form-input" placeholder="e.g. Cloud Architecture" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="new-course-level">Target Level</label>
+            <select id="new-course-level" class="form-select">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate" selected>Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="new-course-instructor">Instructor Name</label>
+            <input type="text" id="new-course-instructor" class="form-input" value="Dr. Sarah Chen" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="new-course-duration">Estimated Duration</label>
+            <input type="text" id="new-course-duration" class="form-input" placeholder="e.g. 6 Weeks (18 hrs)" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="new-course-description">Course Overview</label>
+          <textarea id="new-course-description" class="form-textarea" placeholder="Comprehensive description of topics and outcomes..." required></textarea>
+        </div>
+
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin: 1.25rem 0 0.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+          Initial Lesson 1
+        </h3>
+
+        <div class="form-group">
+          <label class="form-label" for="new-lesson1-title">Lesson Title</label>
+          <input type="text" id="new-lesson1-title" class="form-input" placeholder="e.g. Architectural Foundations & Setup" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="new-lesson1-content">Lesson Notes / Content</label>
+          <textarea id="new-lesson1-content" class="form-textarea" placeholder="Detailed syllabus reading notes and lesson content..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="new-lesson1-video">Lesson Video URL (YouTube)</label>
+          <input type="url" id="new-lesson1-video" class="form-input" placeholder="https://www.youtube.com/watch?v=..." />
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button type="button" class="btn btn-outline" onclick="closeCreateCourseModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish Course</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-bottom">
+      <div>© 2026 EduPulse Learning Systems • Faculty Administration</div>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="/courses.html">Course Catalog</a>
+        <a href="/profile.html">Student Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
